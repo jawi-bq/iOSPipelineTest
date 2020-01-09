@@ -13,7 +13,8 @@ steps:
 - task: InstallAppleCertificate@2
   inputs:
     certSecureFile: 'Britenet_AdHoc_Distribution.p12'
-    certPwd: $(P12Password)
+    certPwd: 'Britenet12345'
+    keychain: 'temp'
 
 - task: InstallAppleProvisioningProfile@1
   inputs:
