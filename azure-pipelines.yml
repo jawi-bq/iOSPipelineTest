@@ -1,0 +1,20 @@
+# https://docs.microsoft.com/azure/devops/pipelines/ecosystems/xcode
+pool:
+# change vm to 10.15 when after this issue will be resolved
+#https://github.com/microsoft/azure-pipelines-image-generation/issues/1277
+  vmImage: 'macOS-10.14'
+  
+variables:
+  scheme: ''
+  sdk: 'iphoneos'
+  configuration: 'Release'
+
+steps:
+- task: Xcode@5
+  inputs:
+    sdk: '$(sdk)'
+    scheme: '$(scheme)'
+    configuration: '$(configuration)'
+    xcodeVersion: '11'
+    exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
+    packageApp: false
