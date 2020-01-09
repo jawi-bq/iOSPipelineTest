@@ -10,6 +10,17 @@ variables:
   configuration: 'Release'
 
 steps:
+# Install Apple certificate
+# Install an Apple certificate required to build on a macOS agent machine
+- - task: InstallAppleCertificate@2
+  inputs:
+    certSecureFile: 'chrisid_iOSDev_Nov2018.p12'
+    certPwd: $(P12Password)
+
+- task: InstallAppleProvisioningProfile@1
+  inputs:
+    provProfileSecureFile: '6ffac825-ed27-47d0-8134-95fcf37a666c.mobileprovision'
+    
 - task: Xcode@5
   inputs:
     sdk: '$(sdk)'
