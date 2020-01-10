@@ -12,13 +12,14 @@ variables:
 steps:
 - task: InstallAppleCertificate@2
   inputs:
-    certSecureFile: 'Britenet_AdHoc_Distribution.p12'
+    certSecureFile: 'BritenetDistribution.p12'
     certPwd: 'Britenet12345'
     keychain: 'temp'
 
 - task: InstallAppleProvisioningProfile@1
   inputs:
-    provProfileSecureFile: 'Britenet_AdHoc.mobileprovision'
+    provisioningProfileLocation: 'secureFiles'
+    provProfileSecureFile: 'AzureAdHoc.mobileprovision'
     
 - task: Xcode@5
   inputs:
