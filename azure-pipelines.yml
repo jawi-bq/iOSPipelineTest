@@ -1,6 +1,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/ecosystems/xcode
 pool:
 # change vm to 10.15 when after this issue will be resolved
+# test
 #https://github.com/microsoft/azure-pipelines-image-generation/issues/1277
   vmImage: 'macOS-10.14'
   
