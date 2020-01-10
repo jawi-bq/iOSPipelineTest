@@ -30,4 +30,4 @@ steps:
     exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
     exportMethod: 'ad-hoc'
     packageApp: true
-    teamId: '772RH2549C'
+    exportTeamId: '772RH2549C'
