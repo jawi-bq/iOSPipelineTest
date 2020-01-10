@@ -39,6 +39,6 @@ steps:
   inputs:
     buildType: 'current'
     downloadType: 'single'
-    artifactName: '*'
+    artifactName: '*.ipa'
     downloadPath: '$(System.ArtifactsDirectory)'
     
