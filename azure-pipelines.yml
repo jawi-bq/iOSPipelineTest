@@ -10,6 +10,17 @@ variables:
   configuration: 'Release'
 
 steps:
+- task: InstallAppleCertificate@2
+  inputs:
+    certSecureFile: 'BritenetDistribution.p12'
+    certPwd: 'Britenet12345'
+    keychain: 'temp'
+
+- task: InstallAppleProvisioningProfile@1
+  inputs:
+    provisioningProfileLocation: 'secureFiles'
+    provProfileSecureFile: 'AzureAdHoc.mobileprovision'
+    
 - task: Xcode@5
   inputs:
     sdk: '$(sdk)'
@@ -17,4 +28,6 @@ steps:
     configuration: '$(configuration)'
     xcodeVersion: '11'
     exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
-    packageApp: false
+    exportMethod: 'ad-hoc'
+    packageApp: true
+    teamId: '772RH2549C'
