@@ -30,4 +30,5 @@ steps:
     exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
     exportMethod: 'ad-hoc'
     packageApp: true
+    signingOption: 'auto'
    
