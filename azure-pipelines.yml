@@ -48,3 +48,13 @@ steps:
     artifactName: 'drop'
     downloadPath: '$(System.ArtifactsDirectory)'
     
+- task: AppStoreRelease@1
+  inputs:
+    authType: 'UserAndPass'
+    username: 'jacek.winnicki@britenet.com.pl'
+    password: '$(AppleStorePassword)'
+    appIdentifier: 'com.britenet.azuretest'
+    appType: 'iOS'
+    ipaPath: '**/*.ipa'
+    releaseTrack: 'TestFlight'
+    shouldSkipSubmission: true
