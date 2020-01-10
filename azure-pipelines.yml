@@ -21,7 +21,7 @@ steps:
 - task: InstallAppleProvisioningProfile@1
   inputs:
     provisioningProfileLocation: 'secureFiles'
-    provProfileSecureFile: 'AzureAdHoc.mobileprovision'
+    provProfileSecureFile: 'AzureStore.mobileprovision'
     
 - task: Xcode@5
   inputs:

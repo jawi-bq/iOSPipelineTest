@@ -298,6 +298,7 @@
 				CODE_SIGN_ENTITLEMENTS = iOSPipelineTest/iOSPipelineTest.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 772RH2549C;
 				INFOPLIST_FILE = iOSPipelineTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -318,6 +319,7 @@
 				CODE_SIGN_ENTITLEMENTS = iOSPipelineTest/iOSPipelineTest.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 772RH2549C;
 				INFOPLIST_FILE = iOSPipelineTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
