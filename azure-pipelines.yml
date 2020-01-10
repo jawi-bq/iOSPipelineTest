@@ -33,4 +33,5 @@ steps:
     provisioningProfileName: 'AzureAdHoc'
     packageApp: true
     signingOption: 'auto'
+    exportArgs: '-allowProvisioningUpdates'
    
