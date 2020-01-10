@@ -5,7 +5,7 @@ pool:
   vmImage: 'macOS-10.14'
   
 variables:
-  scheme: ''
+  scheme: 'iOSPipelineTest'
   sdk: 'iphoneos'
   configuration: 'Release'
 
@@ -26,8 +26,8 @@ steps:
     sdk: '$(sdk)'
     scheme: '$(scheme)'
     configuration: '$(configuration)'
-    xcodeVersion: '11'
+    xcodeVersion: '10'
     exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
     exportMethod: 'ad-hoc'
     packageApp: true
-    exportTeamId: '772RH2549C'
+   
