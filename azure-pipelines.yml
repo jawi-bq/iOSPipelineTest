@@ -55,6 +55,6 @@ steps:
     password: '$(AppleStorePassword)'
     appIdentifier: 'com.britenet.azuretest'
     appType: 'iOS'
-    ipaPath: '**/*.ipa'
+    ipaPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)/*.ipa'
     releaseTrack: 'TestFlight'
     shouldSkipSubmission: true
