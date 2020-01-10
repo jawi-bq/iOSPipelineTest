@@ -26,7 +26,7 @@ steps:
     sdk: '$(sdk)'
     scheme: '$(scheme)'
     configuration: '$(configuration)'
-    xcodeVersion: '10'
+    xcodeVersion: '11'
     exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
     exportMethod: 'ad-hoc'
     packageApp: true
