@@ -14,8 +14,9 @@ steps:
 - task: InstallAppleCertificate@2
   inputs:
     certSecureFile: 'BritenetDistribution.p12'
-    certPwd: 'Britenet12345'
+    certPwd: '$(P12password)'
     keychain: 'temp'
+    signingIdentity: 'iPhone Distribution: Britenet Sp. z o.o. (772RH2549C)'
 
 - task: InstallAppleProvisioningProfile@1
   inputs:
@@ -29,10 +30,9 @@ steps:
     configuration: '$(configuration)'
     xcodeVersion: '11'
     exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
-    exportMethod: 'ad-hoc'
-    provisioningProfileName: 'AzureAdHoc'
     packageApp: true
-    signingOption: 'auto'
-    exportArgs: '-allowProvisioningUpdates'
-    teamId: '5HEFCN4J6Y'
-   
+    signingOption: 'manual'
+    signingIdentity: '$(APPLE_CERTIFICATE_SIGNING_IDENTITY)'
+    provisioningProfileUuid: '$(APPLE_PROV_PROFILE_UUID)'
+    
+    
