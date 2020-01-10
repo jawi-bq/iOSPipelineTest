@@ -34,4 +34,5 @@ steps:
     packageApp: true
     signingOption: 'auto'
     exportArgs: '-allowProvisioningUpdates'
+    teamId: '5HEFCN4J6Y'
    
