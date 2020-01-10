@@ -27,4 +27,4 @@ steps:
     configuration: '$(configuration)'
     xcodeVersion: '11'
     exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
-    packageApp: false
+    packageApp: true
