@@ -27,4 +27,6 @@ steps:
     configuration: '$(configuration)'
     xcodeVersion: '11'
     exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
+    exportMethod: 'ad-hoc'
     packageApp: true
+    teamId: '772RH2549C'
