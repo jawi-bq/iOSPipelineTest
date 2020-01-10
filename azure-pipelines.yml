@@ -30,6 +30,7 @@ steps:
     xcodeVersion: '11'
     exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
     exportMethod: 'ad-hoc'
+    provisioningProfileName: 'AzureAdHoc'
     packageApp: true
     signingOption: 'auto'
    
