@@ -31,6 +31,7 @@
 		0E45E28323C71ED500352789 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E45E28423C71ED500352789 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0E45E28B23C7265F00352789 /* azure-pipelines.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = "azure-pipelines.yml"; sourceTree = SOURCE_ROOT; };
+		0E4DE2A823C7622300702E76 /* iOSPipelineTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOSPipelineTest.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +65,7 @@
 		0E45E27123C71ED300352789 /* iOSPipelineTest */ = {
 			isa = PBXGroup;
 			children = (
+				0E4DE2A823C7622300702E76 /* iOSPipelineTest.entitlements */,
 				0E45E27223C71ED300352789 /* AppDelegate.h */,
 				0E45E27323C71ED300352789 /* AppDelegate.m */,
 				0E45E27523C71ED300352789 /* SceneDelegate.h */,
@@ -293,15 +295,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iOSPipelineTest/iOSPipelineTest.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2S5RXC3WVX;
+				DEVELOPMENT_TEAM = 772RH2549C;
 				INFOPLIST_FILE = iOSPipelineTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.iOSPipelineTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.britenet.azuretest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -310,15 +315,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iOSPipelineTest/iOSPipelineTest.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2S5RXC3WVX;
+				DEVELOPMENT_TEAM = 772RH2549C;
 				INFOPLIST_FILE = iOSPipelineTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.iOSPipelineTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.britenet.azuretest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
