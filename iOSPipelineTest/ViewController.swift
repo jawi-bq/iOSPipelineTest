@@ -1,17 +1,21 @@
 //
-//  test.swift
+//  ViewController.swift
 //  iOSPipelineTest
 //
 //  Created by GaC on 13/01/2020.
 //  Copyright © 2020 Test. All rights reserved.
 //
 
-import Foundation
-import AlamofireImage
+import UIKit
 import Alamofire
+import AlamofireImage
 
-class test {
-    func foo() {
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        
         Alamofire.request("https://httpbin.org/image/png").responseImage { response in
             debugPrint(response)
 
@@ -24,4 +28,7 @@ class test {
             }
         }
     }
+
+
 }
+
