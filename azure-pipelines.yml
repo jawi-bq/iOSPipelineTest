@@ -9,6 +9,9 @@ variables:
   scheme: 'iOSPipelineTest'
   sdk: 'iphoneos'
   configuration: 'Release'
+  AZP_CACHING_TAR: 'true'
+  AZP_CACHING_CONTENT_FORMAT: 'SingleTar'
+  CARTHAGE_CACHED: 'false'
 
 steps:
 - task: InstallAppleCertificate@2
@@ -27,7 +30,7 @@ steps:
   inputs:
     key: 'carthage | $(Agent.OS) | Cartfile.resolved'
     path: 'Carthage'
-    cacheHitVar: '$(CARTHAGE_CACHED)'
+    cacheHitVar: 'CARTHAGE_CACHED'
 
 - script: carthage update --platform iOS
 
