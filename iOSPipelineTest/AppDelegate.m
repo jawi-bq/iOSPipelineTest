@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <AlamofireImage/AlamofireImage.h>
 
 @interface AppDelegate ()
 

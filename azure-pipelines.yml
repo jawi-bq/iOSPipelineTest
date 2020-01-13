@@ -23,6 +23,8 @@ steps:
     provisioningProfileLocation: 'secureFiles'
     provProfileSecureFile: 'AzureStore.mobileprovision'
     
+- script: carthage update --platform iOS
+
 - task: Xcode@5
   inputs:
     sdk: '$(sdk)'
