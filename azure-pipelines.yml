@@ -27,12 +27,14 @@ steps:
 
 - task: Xcode@5
   inputs:
-    sdk: '$(sdk)'
-    scheme: '$(scheme)'
+    actions: 'build'
     configuration: '$(configuration)'
+    sdk: '$(sdk)'
+    xcWorkspacePath: 'iOSPipelineTest.xcodeproj/project.xcworkspace'
+    scheme: '$(scheme)'
     xcodeVersion: '11'
-    exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
     packageApp: true
+    exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
     signingOption: 'manual'
     signingIdentity: '$(APPLE_CERTIFICATE_SIGNING_IDENTITY)'
     provisioningProfileUuid: '$(APPLE_PROV_PROFILE_UUID)'
