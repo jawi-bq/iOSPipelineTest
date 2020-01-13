@@ -9,6 +9,9 @@ variables:
   scheme: 'iOSPipelineTest'
   sdk: 'iphoneos'
   configuration: 'Release'
+  AZP_CACHING_TAR: 'true'
+  AZP_CACHING_CONTENT_FORMAT: 'SingleTar'
+  CACHE_RESTORED: 'false'
 
 steps:
 - task: InstallAppleCertificate@2
@@ -23,7 +26,14 @@ steps:
     provisioningProfileLocation: 'secureFiles'
     provProfileSecureFile: 'AzureStore.mobileprovision'
     
-- script: carthage update --platform iOS
+- task: CacheBeta@1
+  inputs:
+    key: 'carthage | $(Agent.OS) | Cartfile.resolved'
+    path: '$(Pipeline.Workspace)/Carthage/Build/iOS'
+    cacheHitVar: 'CACHE_RESTORED'
+
+- script: carthage update --platform iOS 
+  condition: ne(variables.CACHE_RESTORED, 'true')
 
 - task: Xcode@5
   inputs:
@@ -32,7 +42,8 @@ steps:
     sdk: '$(sdk)'
     xcWorkspacePath: 'iOSPipelineTest.xcodeproj/project.xcworkspace'
     scheme: '$(scheme)'
-    xcodeVersion: '11'
+    xcodeVersion: 'specifyPath'
+    xcodeDeveloperDir: '/Applications/Xcode_11.3.app'
     packageApp: true
     exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
     signingOption: 'manual'
