@@ -32,7 +32,7 @@ steps:
     sdk: '$(sdk)'
     xcWorkspacePath: 'iOSPipelineTest.xcodeproj/project.xcworkspace'
     scheme: '$(scheme)'
-    xcodeVersion: '11.2'
+    xcodeVersion: '11'
     packageApp: true
     exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
     signingOption: 'manual'
