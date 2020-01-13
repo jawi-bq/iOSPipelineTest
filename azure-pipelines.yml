@@ -26,9 +26,9 @@ steps:
     provisioningProfileLocation: 'secureFiles'
     provProfileSecureFile: 'AzureStore.mobileprovision'
     
-- task: Cache@2
+- task: CacheBeta@1
   inputs:
-    key: 'carthage | $(Agent.OS) | $(Build.SourcesDirectory)/Cartfile.resolved'
+    key: 'carthage | $(Agent.OS) | Cartfile.resolved'
     path: '$(Pipeline.Workspace)/Carthage/Build/iOS'
     cacheHitVar: 'CACHE_RESTORED'
 
