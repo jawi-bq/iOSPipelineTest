@@ -81,6 +81,5 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: '*.xml'
-    searchFolder: '$(agent.buildDirectory)/reports'
+    testResultsFiles: '/build/reports/*.xml'
     testRunTitle: 'XCTest'
