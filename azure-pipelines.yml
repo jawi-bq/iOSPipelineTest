@@ -36,6 +36,19 @@ steps:
   condition: ne(variables.CACHE_RESTORED, 'true')
 
 - task: Xcode@5
+  displayName: 'Xcode tests'
+  inputs:
+    actions: 'test'
+    xcWorkspacePath: 'iOSPipelineTest.xcodeproj/project.xcworkspace'
+    scheme: '$(scheme)'
+    xcodeVersion: 'specifyPath'
+    xcodeDeveloperDir: '/Applications/Xcode_11.3.app'
+    packageApp: false
+    destinationPlatformOption: 'iOS'
+    publishJUnitResults: true'
+
+- task: Xcode@5
+  displayName: 'Xcode build'
   inputs:
     actions: 'build'
     configuration: '$(configuration)'
@@ -49,7 +62,7 @@ steps:
     signingOption: 'manual'
     signingIdentity: '$(APPLE_CERTIFICATE_SIGNING_IDENTITY)'
     provisioningProfileUuid: '$(APPLE_PROV_PROFILE_UUID)'
-
+    
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'

@@ -15,7 +15,18 @@
 		0E4C24D123CC7217002FA5FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E4C24CF23CC7217002FA5FC /* LaunchScreen.storyboard */; };
 		0E4C24DC23CC734F002FA5FC /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E4C24DA23CC734F002FA5FC /* AlamofireImage.framework */; };
 		0E4C24DD23CC734F002FA5FC /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E4C24DB23CC734F002FA5FC /* Alamofire.framework */; };
+		0E4C24E523CCA247002FA5FC /* iOSPipelineTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4C24E423CCA247002FA5FC /* iOSPipelineTestUITests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0E4C24E723CCA247002FA5FC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E4C24B923CC7215002FA5FC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0E4C24C023CC7215002FA5FC;
+			remoteInfo = iOSPipelineTest;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0E4C24C123CC7215002FA5FC /* iOSPipelineTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSPipelineTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -28,6 +39,9 @@
 		0E4C24D223CC7217002FA5FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E4C24DA23CC734F002FA5FC /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		0E4C24DB23CC734F002FA5FC /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		0E4C24E223CCA247002FA5FC /* iOSPipelineTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSPipelineTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E4C24E423CCA247002FA5FC /* iOSPipelineTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSPipelineTestUITests.swift; sourceTree = "<group>"; };
+		0E4C24E623CCA247002FA5FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +54,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0E4C24DF23CCA247002FA5FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -47,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				0E4C24C323CC7215002FA5FC /* iOSPipelineTest */,
+				0E4C24E323CCA247002FA5FC /* iOSPipelineTestUITests */,
 				0E4C24C223CC7215002FA5FC /* Products */,
 				0E4C24D923CC734F002FA5FC /* Frameworks */,
 			);
@@ -56,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				0E4C24C123CC7215002FA5FC /* iOSPipelineTest.app */,
+				0E4C24E223CCA247002FA5FC /* iOSPipelineTestUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,6 +106,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		0E4C24E323CCA247002FA5FC /* iOSPipelineTestUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0E4C24E423CCA247002FA5FC /* iOSPipelineTestUITests.swift */,
+				0E4C24E623CCA247002FA5FC /* Info.plist */,
+			);
+			path = iOSPipelineTestUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -104,6 +136,24 @@
 			productReference = 0E4C24C123CC7215002FA5FC /* iOSPipelineTest.app */;
 			productType = "com.apple.product-type.application";
 		};
+		0E4C24E123CCA247002FA5FC /* iOSPipelineTestUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0E4C24EB23CCA247002FA5FC /* Build configuration list for PBXNativeTarget "iOSPipelineTestUITests" */;
+			buildPhases = (
+				0E4C24DE23CCA247002FA5FC /* Sources */,
+				0E4C24DF23CCA247002FA5FC /* Frameworks */,
+				0E4C24E023CCA247002FA5FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0E4C24E823CCA247002FA5FC /* PBXTargetDependency */,
+			);
+			name = iOSPipelineTestUITests;
+			productName = iOSPipelineTestUITests;
+			productReference = 0E4C24E223CCA247002FA5FC /* iOSPipelineTestUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -116,6 +166,10 @@
 				TargetAttributes = {
 					0E4C24C023CC7215002FA5FC = {
 						CreatedOnToolsVersion = 11.3;
+					};
+					0E4C24E123CCA247002FA5FC = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = 0E4C24C023CC7215002FA5FC;
 					};
 				};
 			};
@@ -133,6 +187,7 @@
 			projectRoot = "";
 			targets = (
 				0E4C24C023CC7215002FA5FC /* iOSPipelineTest */,
+				0E4C24E123CCA247002FA5FC /* iOSPipelineTestUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -145,6 +200,13 @@
 				0E4C24D123CC7217002FA5FC /* LaunchScreen.storyboard in Resources */,
 				0E4C24CE23CC7217002FA5FC /* Assets.xcassets in Resources */,
 				0E4C24CC23CC7215002FA5FC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E4C24E023CCA247002FA5FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,7 +247,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0E4C24DE23CCA247002FA5FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E4C24E523CCA247002FA5FC /* iOSPipelineTestUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0E4C24E823CCA247002FA5FC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0E4C24C023CC7215002FA5FC /* iOSPipelineTest */;
+			targetProxy = 0E4C24E723CCA247002FA5FC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0E4C24CA23CC7215002FA5FC /* Main.storyboard */ = {
@@ -369,6 +447,44 @@
 			};
 			name = Release;
 		};
+		0E4C24E923CCA247002FA5FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2S5RXC3WVX;
+				INFOPLIST_FILE = iOSPipelineTestUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.iOSPipelineTestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = iOSPipelineTest;
+			};
+			name = Debug;
+		};
+		0E4C24EA23CCA247002FA5FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2S5RXC3WVX;
+				INFOPLIST_FILE = iOSPipelineTestUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.iOSPipelineTestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = iOSPipelineTest;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -386,6 +502,15 @@
 			buildConfigurations = (
 				0E4C24D623CC7217002FA5FC /* Debug */,
 				0E4C24D723CC7217002FA5FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0E4C24EB23CCA247002FA5FC /* Build configuration list for PBXNativeTarget "iOSPipelineTestUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E4C24E923CCA247002FA5FC /* Debug */,
+				0E4C24EA23CCA247002FA5FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
