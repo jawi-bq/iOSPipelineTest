@@ -46,8 +46,9 @@ steps:
     packageApp: false
     destinationPlatformOption: 'iOS'
     destinationSimulators: 'iPhone 11 Pro Max'
+    useXcpretty: true
     publishJUnitResults: true
-
+    
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
