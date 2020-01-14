@@ -29,7 +29,7 @@ steps:
 - task: CacheBeta@1
   inputs:
     key: 'carthage | $(Agent.OS) | Cartfile.resolved'
-    path: '$(Pipeline.Workspace)/Carthage/Build/iOS'
+    path: 'Carthage'
     cacheHitVar: 'CACHE_RESTORED'
 
 - script: carthage update --platform iOS 
