@@ -48,6 +48,12 @@ steps:
     destinationSimulators: 'iPhone 11 Pro Max'
     publishJUnitResults: true
 
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/TEST-*.xml'
+    testRunTitle: 'XCTest'
+
 - task: Xcode@5
   displayName: 'Xcode build'
   inputs:
