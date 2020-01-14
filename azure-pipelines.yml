@@ -45,6 +45,7 @@ steps:
     xcodeDeveloperDir: '/Applications/Xcode_11.3.app'
     packageApp: false
     destinationPlatformOption: 'iOS'
+    destinationSimulators: 'iPhone 11 Pro Max'
     publishJUnitResults: true'
 
 - task: Xcode@5
