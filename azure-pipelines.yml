@@ -78,3 +78,9 @@ steps:
     artifactName: 'drop'
     downloadPath: '$(System.ArtifactsDirectory)'
     
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '*.xml'
+    searchFolder: '$(agent.buildDirectory)/reports'
+    testRunTitle: 'XCTest'
