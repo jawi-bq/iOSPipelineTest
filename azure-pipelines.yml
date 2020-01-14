@@ -46,7 +46,7 @@ steps:
     packageApp: false
     destinationPlatformOption: 'iOS'
     destinationSimulators: 'iPhone 11 Pro Max'
-    publishJUnitResults: true'
+    publishJUnitResults: true
 
 - task: Xcode@5
   displayName: 'Xcode build'
