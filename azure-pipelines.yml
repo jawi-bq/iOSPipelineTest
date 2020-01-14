@@ -81,5 +81,4 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: '/build/reports/*.xml'
-    testRunTitle: 'XCTest'
+    testResultsFiles: 'reports/junit.xml'
