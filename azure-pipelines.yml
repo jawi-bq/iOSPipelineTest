@@ -49,12 +49,6 @@ steps:
     useXcpretty: true
     publishJUnitResults: true
     
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'JUnit'
-    testResultsFiles: '**/TEST-*.xml'
-    testRunTitle: 'XCTest'
-
 - task: Xcode@5
   displayName: 'Xcode build'
   inputs:
