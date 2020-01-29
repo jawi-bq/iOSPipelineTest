@@ -49,36 +49,36 @@ steps:
     useXcpretty: true
     publishJUnitResults: true
     
-- task: Xcode@5
-  displayName: 'Xcode build'
-  inputs:
-    actions: 'build'
-    configuration: '$(configuration)'
-    sdk: '$(sdk)'
-    xcWorkspacePath: 'iOSPipelineTest.xcodeproj/project.xcworkspace'
-    scheme: '$(scheme)'
-    xcodeVersion: 'specifyPath'
-    xcodeDeveloperDir: '/Applications/Xcode_11.3.app'
-    packageApp: true
-    exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
-    signingOption: 'manual'
-    signingIdentity: '$(APPLE_CERTIFICATE_SIGNING_IDENTITY)'
-    provisioningProfileUuid: '$(APPLE_PROV_PROFILE_UUID)'
+#- task: Xcode@5
+#  displayName: 'Xcode build'
+#  inputs:
+#    actions: 'build'
+#    configuration: '$(configuration)'
+#    sdk: '$(sdk)'
+#    xcWorkspacePath: 'iOSPipelineTest.xcodeproj/project.xcworkspace'
+#    scheme: '$(scheme)'
+#    xcodeVersion: 'specifyPath'
+#    xcodeDeveloperDir: '/Applications/Xcode_11.3.app'
+#    packageApp: true
+#    exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
+#    signingOption: 'manual'
+#    signingIdentity: '$(APPLE_CERTIFICATE_SIGNING_IDENTITY)'
+#    provisioningProfileUuid: '$(APPLE_PROV_PROFILE_UUID)'
     
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+#- task: PublishBuildArtifacts@1
+#  inputs:
+#    PathtoPublish: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
+#    ArtifactName: 'drop'
+#    publishLocation: 'Container'
 
-- task: DownloadBuildArtifacts@0
-  inputs:
-    buildType: 'current'
-    downloadType: 'single'
-    artifactName: 'drop'
-    downloadPath: '$(System.ArtifactsDirectory)'
+#- task: DownloadBuildArtifacts@0
+#  inputs:
+#    buildType: 'current'
+#    downloadType: 'single'
+#    artifactName: 'drop'
+#    downloadPath: '$(System.ArtifactsDirectory)'
     
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: 'reports/junit.xml'
+    testResultsFiles: 'build/reports/junit.xml'
