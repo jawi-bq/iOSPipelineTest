@@ -9,8 +9,6 @@ variables:
   scheme: 'iOSPipelineTest'
   sdk: 'iphoneos'
   configuration: 'Release'
-  AZP_CACHING_TAR: 'true'
-  AZP_CACHING_CONTENT_FORMAT: 'SingleTar'
   CACHE_RESTORED: 'false'
 
 steps:
@@ -39,6 +37,8 @@ steps:
   displayName: 'Xcode tests'
   inputs:
     actions: 'test'
+    configuration: 'Debug'
+    sdk: 'iphonesimulator'
     xcWorkspacePath: 'iOSPipelineTest.xcodeproj/project.xcworkspace'
     scheme: '$(scheme)'
     xcodeVersion: 'specifyPath'
