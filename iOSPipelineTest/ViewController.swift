@@ -17,18 +17,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         Alamofire.request("https://httpbin.org/image/png").responseImage { response in
-            debugPrint(response)
-
-            print(response.request)
-            print(response.response)
-            debugPrint(response.result)
-
             if let image = response.result.value {
                 print("image downloaded: \(image)")
             }
         }
     }
-
-
 }
 
