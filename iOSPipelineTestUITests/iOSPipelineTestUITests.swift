@@ -17,6 +17,7 @@ class iOSPipelineTestUITests: XCTestCase {
         continueAfterFailure = false
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        XCUIApplication().launch()
     }
 
     override func tearDown() {
@@ -24,30 +25,12 @@ class iOSPipelineTestUITests: XCTestCase {
     }
 
     func testExample() {
-        // UI tests must launch the application that they test.
         let app = XCUIApplication()
-        app.launch()
+        //app.launch()
 
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
         app.textFields["loginInput"].tap()
-        
-        let tKey = app/*@START_MENU_TOKEN@*/.keys["t"]/*[[".keyboards.keys[\"t\"]",".keys[\"t\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        tKey.tap()
-        tKey.tap()
-        
-        let eKey = app/*@START_MENU_TOKEN@*/.keys["e"]/*[[".keyboards.keys[\"e\"]",".keys[\"e\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        eKey.tap()
-        eKey.tap()
-        
-        let sKey = app/*@START_MENU_TOKEN@*/.keys["s"]/*[[".keyboards.keys[\"s\"]",".keys[\"s\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        sKey.tap()
-        sKey.tap()
-        tKey.tap()
-        tKey.tap()
+        app.textFields["loginInput"].typeText("test")
         app/*@START_MENU_TOKEN@*/.buttons["loginButtom"]/*[[".buttons[\"Button\"]",".buttons[\"loginButtom\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        
     }
 
     /*func testLaunchPerformance() {
