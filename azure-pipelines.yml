@@ -3,13 +3,20 @@ pool:
 # change vm to 10.15 when after this issue will be resolved
 # test
 #https://github.com/microsoft/azure-pipelines-image-generation/issues/1277
-  vmImage: 'macOS-10.14'
+  vmImage: 'macOS-10.15'
   
 variables:
-  scheme: 'iOSPipelineTest'
-  sdk: 'iphoneos'
-  configuration: 'Release'
-  CACHE_RESTORED: 'false'
+- group: ios_variables
+- name: scheme
+  value: 'iOSPipelineTest'
+- name: sdk
+  value: 'iphoneos'
+- name: configuration
+  value: 'Release'
+- name: CACHE_RESTORED
+  value: 'false'
+- name: xcodePath
+  value: '/Applications/Xcode_12.2.app'
 
 steps:
 - task: InstallAppleCertificate@2
@@ -23,7 +30,16 @@ steps:
   inputs:
     provisioningProfileLocation: 'secureFiles'
     provProfileSecureFile: 'AzureStore.mobileprovision'
-    
+
+- task: Bash@3
+  displayName: 'Set default Xcode'
+  inputs:
+    targetType: 'inline'
+    script: |
+      sudo xcode-select --switch ${{variables.xcodePath}}/Contents/Developer
+      echo "Xcode version: "
+      xcodebuild -version
+
 - task: CacheBeta@1
   inputs:
     key: 'carthage | $(Agent.OS) | Cartfile.resolved'
@@ -33,52 +49,52 @@ steps:
 - script: carthage update --platform iOS 
   condition: ne(variables.CACHE_RESTORED, 'true')
 
-- task: Xcode@5
-  displayName: 'Xcode tests'
-  inputs:
-    actions: 'test'
-    configuration: 'Debug'
-    sdk: 'iphonesimulator'
-    xcWorkspacePath: 'iOSPipelineTest.xcodeproj/project.xcworkspace'
-    scheme: '$(scheme)'
-    xcodeVersion: 'specifyPath'
-    xcodeDeveloperDir: '/Applications/Xcode_11.3.app'
-    packageApp: false
-    destinationPlatformOption: 'iOS'
-    destinationSimulators: 'iPhone 11 Pro Max'
-    useXcpretty: true
-    publishJUnitResults: true
-    
 #- task: Xcode@5
-#  displayName: 'Xcode build'
+#  displayName: 'Xcode tests'
 #  inputs:
-#    actions: 'build'
-#    configuration: '$(configuration)'
-#    sdk: '$(sdk)'
+#    actions: 'test'
+#    configuration: 'Debug'
+#    sdk: 'iphonesimulator'
 #    xcWorkspacePath: 'iOSPipelineTest.xcodeproj/project.xcworkspace'
 #    scheme: '$(scheme)'
 #    xcodeVersion: 'specifyPath'
 #    xcodeDeveloperDir: '/Applications/Xcode_11.3.app'
-#    packageApp: true
-#    exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
-#    signingOption: 'manual'
-#    signingIdentity: '$(APPLE_CERTIFICATE_SIGNING_IDENTITY)'
-#    provisioningProfileUuid: '$(APPLE_PROV_PROFILE_UUID)'
+#    packageApp: false
+#    destinationPlatformOption: 'iOS'
+#    destinationSimulators: 'iPhone 11 Pro Max'
+#    useXcpretty: true
+#    publishJUnitResults: true
     
-#- task: PublishBuildArtifacts@1
-#  inputs:
-#    PathtoPublish: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
-#    ArtifactName: 'drop'
-#    publishLocation: 'Container'
-
-#- task: DownloadBuildArtifacts@0
-#  inputs:
-#    buildType: 'current'
-#    downloadType: 'single'
-#    artifactName: 'drop'
-#    downloadPath: '$(System.ArtifactsDirectory)'
-    
-- task: PublishTestResults@2
+- task: Xcode@5
+  displayName: 'Xcode build'
   inputs:
-    testResultsFormat: 'JUnit'
-    testResultsFiles: 'build/reports/junit.xml'
+    actions: 'build'
+    configuration: '$(configuration)'
+    sdk: '$(sdk)'
+    xcWorkspacePath: 'iOSPipelineTest.xcodeproj/project.xcworkspace'
+    scheme: '$(scheme)'
+    xcodeVersion: 'specifyPath'
+    xcodeDeveloperDir: '$(xcodePath)'
+    packageApp: true
+    exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
+    signingOption: 'manual'
+    signingIdentity: '$(APPLE_CERTIFICATE_SIGNING_IDENTITY)'
+    provisioningProfileUuid: '$(APPLE_PROV_PROFILE_UUID)'
+    
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+
+- task: DownloadBuildArtifacts@0
+  inputs:
+    buildType: 'current'
+    downloadType: 'single'
+    artifactName: 'drop'
+    downloadPath: '$(System.ArtifactsDirectory)'
+    
+#- task: PublishTestResults@2
+#  inputs:
+#    testResultsFormat: 'JUnit'
+#    testResultsFiles: 'build/reports/junit.xml'
