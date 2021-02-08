@@ -13,7 +13,7 @@ variables:
   value: 'iphoneos'
 - name: configuration
   value: 'Release'
-- name: CACHE_RESTORED
+- name: isCarthageCache
   value: 'false'
 - name: xcodePath
   value: '/Applications/Xcode_12.2.app'
@@ -40,15 +40,21 @@ steps:
       echo "Xcode version: "
       xcodebuild -version
 
-- task: CacheBeta@1
+- task: Cache@2
+  displayName: 'Carthage cache'
   inputs:
-    key: 'carthage | $(Agent.OS) | Cartfile.resolved'
+    key: 'carthage | $(Agent.OS) | Cartfile.resolved | "$(xcodePath)"'
+    restoreKeys: carthage
     path: 'Carthage'
-    cacheHitVar: 'CACHE_RESTORED'
+    cacheHitVar: 'isCarthageCache'
 
-- script: carthage update --platform iOS 
-  condition: ne(variables.CACHE_RESTORED, 'true')
-
+- task: Bash@3
+  displayName: 'Carthage build'
+  condition: ne(variables.isCarthageCache, 'true')
+  inputs:
+    targetType: 'inline'
+    script: ./carthage.sh update --no-use-binaries --platform iOS
+    
 #- task: Xcode@5
 #  displayName: 'Xcode tests'
 #  inputs:
@@ -66,7 +72,7 @@ steps:
 #    publishJUnitResults: true
     
 - task: Xcode@5
-  displayName: 'Xcode build'
+  displayName: 'Xcode Distribution build'
   inputs:
     actions: 'build'
     configuration: '$(configuration)'
