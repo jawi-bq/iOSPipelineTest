@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import Alamofire
-import AlamofireImage
+//import Alamofire
+//import AlamofireImage
 
 class ViewController: UIViewController {
 
@@ -16,11 +16,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        Alamofire.request("https://httpbin.org/image/png").responseImage { response in
+        /*Alamofire.request("https://httpbin.org/image/png").responseImage { response in
             if let image = response.result.value {
                 print("image downloaded: \(image)")
             }
-        }
+        }*/
     }
 }
 
